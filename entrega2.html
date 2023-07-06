@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Spofluxo</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="background">
+        <div class="container"> 
+          <h1>Entrar na Spofluxo</h1>
+          <form id="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="email">E-mail ou nome de usuário:</label>
+              <input type="email" id="email" name="email" placeholder="Digite seu e-mail ou nome de usuário">
+            </div>
+            <div class="form-group">
+              <label for="password">Senha:</label>
+              <input type="password" id="password" name="password" placeholder="Digite sua senha">
+            </div>
+            <div class="form-group">
+              <label for="remember">Lembrar de mim:</label>
+              <input type="checkbox" id="remember" name="lembrar de mim">
+            </div>
+            <div class="form-group">
+              <button type="submit">Enviar</button>
+            </div> 
+            <div class="continue-with-buttons">
+                <button class="continue-with-google">Continuar com Google</button>
+                <button class="continue-with-facebook">Continuar com Facebook</button>
+                <button class="continue-with-apple">Continuar com Apple</button>
+              </div>
+          </form>
+        </div>
+        <script>
+          var form = document.getElementById("contact-form");
+
+          form.addEventListener("submit", function(event){
+           event.preventDefault();
+           var email = document.getElementById("email").value; 
+           var password = document.getElementById("password").value;
+           var checkbox = document.getElementById("remember").checked;
+
+           // Aviso para preencher todos os campos
+          if (email === "" || password === ""){
+            var errorMessage = document.createElement("p");
+            errorMessage.textContent = "Por favor, preencha todos os campos.";
+            errorMessage.classList.add("error-message");
+            form.appendChild(errorMessage);
+          } else {
+            var successMessage = document.createElement("p");
+            successMessage.textContent = "Enviado com sucesso!";
+            successMessage.classList.add("success-message");
+            form.appendChild(successMessage);
+           
+            // Exibir informações do usuário em um alerta
+            var userinfo = "E-mail: " + email + "\nSenha: " + password + "\nCheckbox: " + (checkbox ? "Sim" : "Não");
+            alert(userinfo);
+          }
+          });
+        </script>
+    </div>
+</body>
+</html>
+        
+
